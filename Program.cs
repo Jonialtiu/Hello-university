@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +10,37 @@ namespace TiuProgramKv
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.ReadLine();
+            bool reset = false;
+            int number = 1;
+            Random r = new Random();
+            string y = "";
+            do {
+                Console.Write("Сколько будет чисел в массиве?\nЧисло: ");
+                number = Convert.ToInt32(Console.ReadLine());
+                int[] mas = new int[number];
+                for (int i = 0; i < mas.Length; i++)
+                {
+                    mas[i] = r.Next(0, number);
+                    Console.WriteLine(mas[i]);
+                }
+                Console.WriteLine("Если хотите очистить массив, введите cancel");
+                y = Console.ReadLine();
+                if (y == "cancel")
+                {
+                    for (int i = 0; i < mas.Length; i++)
+                {
+                    mas[i] = 0;
+                    Console.WriteLine(mas[i]);
+                    reset = false;
+                }
+                } else
+                {
+                Console.WriteLine("      Error\n");
+                reset = true;
+                }
+                }
+            while (reset == true);
+            Console.ReadKey();
         }
     }
 }
