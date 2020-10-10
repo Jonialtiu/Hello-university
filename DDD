@@ -1,0 +1,271 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int height = 0;
+            int hands = 0;
+            int averpoints = 0;
+            int averselections = 0;
+            int averpassings = 0;
+            int n = Convert.ToInt32(Console.ReadLine());
+            
+                for (int k = 0; k < n; k++)
+            {
+                height = Convert.ToInt32(Console.ReadLine());
+                hands = Convert.ToInt32(Console.ReadLine());
+                averpoints = Convert.ToInt32(Console.ReadLine());
+                averselections = Convert.ToInt32(Console.ReadLine());
+                averpassings = Convert.ToInt32(Console.ReadLine());
+                int size = 0;
+                int wingspan = 0;
+                int avepoint = 0;
+                int aveselect = 0;
+                int avepass = 0;
+                int higher = 0;
+                int ordinary = 0;
+                int below = 0;
+                int obligatory = 0;
+
+                if (height < 190)
+                {
+                    size = 0;
+                }
+                else
+                {
+                    if (height >= 190 && height <= 220)
+                    {
+                        size = 1;
+                    }
+                    else
+                    {
+                        if (height > 220)
+                        {
+                            size = 2;
+                        }
+                    }
+                }
+                if (hands < 200)
+                {
+                    wingspan = 0;
+                }
+                else
+                {
+                    if (height >= 200 && height <= 250)
+                    {
+                        wingspan = 1;
+                    }
+                    else
+                    {
+                        if (height > 250)
+                        {
+                            wingspan = 2;
+                        }
+                    }
+                }
+                if (averpoints < 10)
+                {
+                    avepoint = 0;
+                }
+                else
+                {
+                    if (averpoints >= 10 && height <= 20)
+                    {
+                        avepoint = 1;
+                    }
+                    else
+                    {
+                        if (avepoint > 20)
+                        {
+                            avepoint = 2;
+                        }
+                    }
+                }
+                if (averselections < 2)
+                {
+                    aveselect = 0;
+                }
+                else
+                {
+                    if (averselections >= 2 && height <= 6)
+                    {
+                        aveselect = 1;
+                    }
+                    else
+                    {
+                        if (averselections > 6)
+                        {
+                            aveselect = 2;
+                        }
+                    }
+                }
+                if (averpassings < 3)
+                {
+                    avepass = 0;
+                }
+                else
+                {
+                    if (averpassings >= 3 && height <= 7)
+                    {
+                        avepass = 1;
+                    }
+                    else
+                    {
+                        if (averpassings > 7)
+                        {
+                            avepass = 2;
+                        }
+                    }
+                }
+                if (size == 0)
+                {
+                    below++;
+                }
+                else
+                {
+                    if (size == 1)
+                    {
+                        ordinary++;
+                    }
+                    else
+                    {
+                        if (size == 2)
+                        {
+                            higher++;
+                            obligatory++;
+                        }
+                    }
+                }
+                if (wingspan == 0)
+                {
+                    below++;
+                }
+                else
+                {
+                    if (size == 1)
+                    {
+                        ordinary++;
+                    }
+                    else
+                    {
+                        if (size == 2)
+                        {
+                            higher++;
+                            obligatory++;
+                        }
+                    }
+                }
+                if (avepoint == 0)
+                {
+                    below++;
+                }
+                else
+                {
+                    if (avepoint == 1)
+                    {
+                        ordinary++;
+                    }
+                    else
+                    {
+                        if (avepoint == 2)
+                        {
+                            higher++;
+                        }
+                    }
+                }
+                if (aveselect == 0)
+                {
+                    below++;
+                }
+                else
+                {
+                    if (aveselect == 1)
+                    {
+                        ordinary++;
+                    }
+                    else
+                    {
+                        if (aveselect == 2)
+                        {
+                            higher++;
+                        }
+                    }
+                }
+                if (avepass == 0)
+                {
+                    below++;
+                }
+                else
+                {
+                    if (avepass == 1)
+                    {
+                        ordinary++;
+                    }
+                    else
+                    {
+                        if (avepass == 2)
+                        {
+                            higher++;
+                        }
+                    }
+                }
+
+
+                int ord = 0;
+                if (height >= 205)
+                    ord++;
+                if (hands >= 225)
+                    ord++;
+                if (averpoints >= 15)
+                    ord++;
+                if (averselections >= 4)
+                    ord++;
+                if (averpassings >= 5)
+                    ord++;
+
+                int category = 3;
+
+                if (higher >= 3 && obligatory > 0)
+                {
+                    category = 0;
+                }
+                else
+                {
+                    if (higher >= 2 && ord > 0)
+                    {
+                        category = 1;
+                    }
+                    else
+                    {
+                        if (ordinary == 5 && ord >= 3)
+                        {
+                            category = 1;
+                        }
+                        else
+                        {
+                            if (higher == 1 && ord > 0)
+                            {
+                                category = 2;
+                            }
+                            else
+                            {
+                                if (ord >= 3)
+                                {
+                                    category = 2;
+                                }
+                            }
+                        }
+                    }
+                }
+                Console.WriteLine(category);
+            }
+        }
+    }
+}
