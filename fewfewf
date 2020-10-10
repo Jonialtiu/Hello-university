@@ -4,28 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace AppC
 {
     class Program
     {
         static void Main(string[] args)
         {
             int n = Convert.ToInt32(Console.ReadLine());
-            int[] rooms = new int[n];
-            int[] passport = new int[n];
+            int[] rs = new int[n];
+            int[] pts = new int[n];
             for (int i = 0; i < n; i++)
             {
-                passport[i] = Convert.ToInt32(Console.ReadLine());
-                rooms[i] = 0;
+                pts[i] = Convert.ToInt32(Console.ReadLine());
+                rs[i] = 0;
             }
             int rest = 0;
             for (int j = 0; j < n; j++)
             {
-                if (passport[j] <= n)
+                if (pts[j] <= n)
                 {
-                    if (rooms[passport[j] - 1] == 0)
+                    if (rs[pts[j] - 1] == 0)
                     {
-                        rooms[passport[j] - 1] = 1;
+                        rs[pts[j] - 1] = 1;
                         rest++;
                     }
                 }
