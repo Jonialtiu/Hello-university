@@ -10,15 +10,14 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int x;
-            int y;
-            int n;
-            Random r = new Random();
-            n = Convert.ToInt32(Console.ReadLine());
-            x = r.Next(100);
-            y = r.Next(100);
-            int sum = ((x + 1) * (y + 1) - x - y - x * y);
-            Console.WriteLine(1);
+            int a = Convert.ToInt32(Console.ReadLine());
+            if (a > 2)
+            {
+                Console.WriteLine(a);
+            } else
+            {
+                Console.WriteLine(1);
+            }
         }
     }
 }
