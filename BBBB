@@ -1,23 +1,27 @@
 #include <iostream>
 using namespace std;
 int main() {
+	FileStream file = null;
+        string Doc = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+        float[,] mas;
+	
 	Random rand = new Random();
-	int arrayL = Convert.ToInt32(textmas2.Text);
+	int arrayL = Convert.ToInt32(Console.ReadLine());
+	int arrayL2 = Convert.ToInt32(Console.ReadLine());
 	if (file != null)
         {
             file.Close();
         }
-        System.IO.File.Delete(MyDocuments + @"\Array2.txt");
+        System.IO.File.Delete(Doc + @"\filee.txt");
         string stroka = "";
-        int arrayL2 = Convert.ToInt32(textmas3.Text);
         mas = new float[arrayL,arrayL2];
-        file = new FileStream(MyDocuments + @"\Array2.txt", FileMode.OpenOrCreate);
+        file = new FileStream(Doc + @"\filee.txt", FileMode.OpenOrCreate);
         for (int i = 0; i < arrayL2; i++)
         {
             for (int j = 0; j < arrayL; j++)
             {
                 mas[i, j] = rand.Next(100);
-                stroka += $"{mas2[i, j].ToString()} ";
+                stroka += $"{mas[i, j].ToString()} ";
             }
             stroka += "\n";
             byte[] arr = Encoding.Default.GetBytes(stroka);
