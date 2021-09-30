@@ -1,22 +1,39 @@
+#include <iostream>
 #include <stdio.h>
-#include <stdlib.h>
+#include <locale.h>
 #include <math.h>
- 
+
+using namespace std;
+
+void Input(string* Array, int Count)
+{
+    cout << "Введите элементы массива: ";
+    for (int i = 0; i < Count; i++)
+    {
+        cin >> Array[i];
+    }
+}
+
 int main()
 {
-    int M[4] = {2, 5, 6, 9}; //--множество
-    int w = 4; //--кол-во элементов множества
- 
+    setlocale(LC_ALL, "Russian");
+    int w;                               // размер массива
+    cout << "Введите размер массива: ";
+    cin >> w;
+
+    string* Array = new string[w];
+    Input(Array, w);
+
     int i, j, n;
- 
+
     n = pow(2, w);
-    for ( i = 0; i < n; i++ ) //--перебор битовых маск
+    for (i = 0; i < n; i++) //--перебор битовых маск
     {
-        printf("{");
-        for ( j = 0; j < w; j++ ) //--перебор битов в маске
-            if ( i & (1 << j) ) //--если j-й бит установлен
-               printf("%d ", M[j]); //--то выводим j-й элемент множества
-        printf("}\n");
+        cout << "[";
+        for (j = 0; j < w; j++)
+            if (i & (1 << j)) //--если j-й бит установлен
+                cout << Array[j];
+        cout << "]\n";
     }
     return 0;
 }
